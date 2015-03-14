@@ -1,3 +1,7 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<h2 id="title">Welcome to Firebase Chat</h2>
 
-{{outlet}}
+{{#if session.isAuthenticated}}
+  {{outlet}}
+{{else}}
+  <button {{action "signInWithGithub"}}>Sign in with github</button>
+{{/if}}

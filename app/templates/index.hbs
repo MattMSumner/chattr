@@ -1,0 +1,8 @@
+<button {{action "logout"}}>Logout</button><br />
+
+{{#each model as |message|}}
+  {{message.handle}}: {{message.body}}<br />
+{{/each}}
+
+Enter Message: {{input value=body action="createMessage"}}
+<button {{action "createMessage"}}>Submit</button>

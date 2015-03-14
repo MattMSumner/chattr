@@ -4,8 +4,13 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'chattr',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://sizzling-fire-6816.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
+    torii: {
+      sessionServiceName: 'session'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

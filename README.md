@@ -1,7 +1,12 @@
 # Chattr
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A breakable toy showing how authentication works using [torii], [emberfire] and
+[torii-fire]. You can see it working up on [divshot].
+
+[torii]: https://github.com/Vestorly/torii
+[emberfire]: https://github.com/firebase/emberfire
+[torii-fire]: https://github.com/MattMSumner/torii-fire
+[divshot]: http://chattr.divshot.io/
 
 ## Prerequisites
 
@@ -15,7 +20,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone git@github.com:MattMSumner/chattr.git` this repository
 * change into the new directory
 * `npm install`
 * `bower install`
