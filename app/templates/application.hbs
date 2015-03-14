@@ -3,5 +3,8 @@
 {{#if session.isAuthenticated}}
   {{outlet}}
 {{else}}
-  <button {{action "signInWithGithub"}}>Sign in with github</button>
+  <button {{action "signIn" "github"}}>Sign in with github</button>
+  <button {{action "signIn" "facebook"}}>Sign in with facebook</button>
+  <button {{action "signIn" "twitter"}}>Sign in with twitter</button>
+  <button {{action "signIn" "google"}}>Sign in with google</button>
 {{/if}}

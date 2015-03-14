@@ -6,8 +6,8 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    signInWithGithub: function() {
-      this.get("session").open("firebase", { authWith: "github" });
+    signIn: function(authWith) {
+      this.get("session").open("firebase", { authWith: authWith});
     }
   }
 });

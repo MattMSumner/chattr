@@ -4,13 +4,13 @@ export default Ember.Object.extend({
   open: function(authorization) {
     let store = this.get("container").lookup("store:main");
 
-    return new Ember.RSVP.Promise(function(resolve) {
+    return new Ember.RSVP.Promise((resolve) => {
       return store.find("user", authorization.uid).then(function(user){
         Ember.run.bind(null, resolve({currentUser: user}));
-      }, function() {
+      }, () => {
         let newUser = store.createRecord("user", {
           id: authorization.uid,
-          handle: authorization.github.username
+          handle: this._handleFor(authorization)
         });
 
         newUser.save().then(function(user) {
@@ -26,9 +26,11 @@ export default Ember.Object.extend({
     let store = this.get("container").lookup("store:main");
 
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      if (authData) {
+      if(authData) {
         store.find("user", authData.uid).then(function(user) {
           Ember.run.bind(null, resolve({currentUser: user}));
+        }, function() {
+          Ember.run.bind(null, reject("no session"));
         });
       } else {
         Ember.run.bind(null, reject("no session"));
@@ -46,5 +48,19 @@ export default Ember.Object.extend({
       firebase.unauth();
       resolve({currentUser: null});
     });
+  },
+
+  _handleFor: function(authorization) {
+    if(authorization.github) {
+      return authorization.github.username;
+    } else if(authorization.facebook) {
+      return authorization.facebook.displayName;
+    } else if(authorization.twitter) {
+      return authorization.twitter.displayName;
+    } else if(authorization.google) {
+      return authorization.google.displayName;
+    } else {
+      throw new Error("couldn't find a username!");
+    }
   }
 });
