@@ -4,8 +4,13 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'chattr',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
-    firebase: 'https://sizzling-fire-6816.firebaseio.com/',
+    contentSecurityPolicy: {
+      'connect-src': "'self' wss://*.firebaseio.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net",
+      'img-src': "'self'  p.typekit.net",
+      'style-src': "'self' 'unsafe-inline' use.typekit.net"
+    },
+    firebase: 'https://ember-places.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     torii: {

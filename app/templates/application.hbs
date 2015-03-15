@@ -1,10 +1,7 @@
-<h2 id="title">Welcome to Firebase Chat</h2>
+<h1 class="header__title">Fireplace</h1>
 
 {{#if session.isAuthenticated}}
   {{outlet}}
 {{else}}
-  <button {{action "signIn" "github"}}>Sign in with github</button>
-  <button {{action "signIn" "facebook"}}>Sign in with facebook</button>
   <button {{action "signIn" "twitter"}}>Sign in with twitter</button>
-  <button {{action "signIn" "google"}}>Sign in with google</button>
 {{/if}}

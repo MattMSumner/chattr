@@ -51,15 +51,9 @@ export default Ember.Object.extend({
   },
 
   _handleFor: function(authorization) {
-    if(authorization.github) {
-      return authorization.github.username;
-    } else if(authorization.facebook) {
-      return authorization.facebook.displayName;
-    } else if(authorization.twitter) {
+    if(authorization.twitter) {
       return authorization.twitter.displayName;
-    } else if(authorization.google) {
-      return authorization.google.displayName;
-    } else {
+    }  else {
       throw new Error("couldn't find a username!");
     }
   }
