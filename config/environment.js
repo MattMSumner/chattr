@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'chattr',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
-    firebase: 'https://sizzling-fire-6816.firebaseio.com/',
+    firebase: 'https://ember-places.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     torii: {
