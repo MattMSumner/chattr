@@ -1,0 +1,29 @@
+@import "bourbon";
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+//
+// Header
+//
+.header__title{
+  font-family: "ff-tisa-web-pro";
+  font-size: em(20);
+
+  @media screen and (min-width: 600px){
+    font-size: em(50);
+  }
+}
+
+//
+// Logout
+//
+.logout__button{
+  position: absolute;
+  top: 0;
+  right: 50px;
+}
